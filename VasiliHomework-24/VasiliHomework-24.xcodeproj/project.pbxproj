@@ -13,6 +13,9 @@
 		9E003CDA295A2C1400757DCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E003CD8295A2C1400757DCC /* Main.storyboard */; };
 		9E003CDC295A2C1500757DCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E003CDB295A2C1500757DCC /* Assets.xcassets */; };
 		9E003CDF295A2C1500757DCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E003CDD295A2C1500757DCC /* LaunchScreen.storyboard */; };
+		9E3F1A6E295A39CE003FAB7D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9E3F1A6D295A39CE003FAB7D /* SnapKit */; };
+		9E3F1A9F295A4099003FAB7D /* MenuCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F1A9E295A4099003FAB7D /* MenuCVCell.swift */; };
+		9E3F1AA5295A4A79003FAB7D /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F1AA4295A4A79003FAB7D /* ImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,8 @@
 		9E003CDB295A2C1500757DCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E003CDE295A2C1500757DCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E003CE0295A2C1500757DCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E3F1A9E295A4099003FAB7D /* MenuCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCVCell.swift; sourceTree = "<group>"; };
+		9E3F1AA4295A4A79003FAB7D /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E3F1A6E295A39CE003FAB7D /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +62,49 @@
 		9E003CD1295A2C1400757DCC /* VasiliHomework-24 */ = {
 			isa = PBXGroup;
 			children = (
-				9E003CD2295A2C1400757DCC /* AppDelegate.swift */,
-				9E003CD4295A2C1400757DCC /* SceneDelegate.swift */,
-				9E003CD6295A2C1400757DCC /* ViewController.swift */,
-				9E003CD8295A2C1400757DCC /* Main.storyboard */,
-				9E003CDB295A2C1500757DCC /* Assets.xcassets */,
-				9E003CDD295A2C1500757DCC /* LaunchScreen.storyboard */,
+				9E3F1A68295A37B7003FAB7D /* Models */,
+				9E3F1A69295A37C4003FAB7D /* Views */,
+				9E3F1A6B295A37DB003FAB7D /* Controllers */,
+				9E3F1A67295A37A3003FAB7D /* Support */,
 				9E003CE0295A2C1500757DCC /* Info.plist */,
 			);
 			path = "VasiliHomework-24";
+			sourceTree = "<group>";
+		};
+		9E3F1A67295A37A3003FAB7D /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				9E003CD2295A2C1400757DCC /* AppDelegate.swift */,
+				9E003CD4295A2C1400757DCC /* SceneDelegate.swift */,
+				9E003CDB295A2C1500757DCC /* Assets.xcassets */,
+				9E003CDD295A2C1500757DCC /* LaunchScreen.storyboard */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		9E3F1A68295A37B7003FAB7D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9E3F1A69295A37C4003FAB7D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9E003CD8295A2C1400757DCC /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9E3F1A6B295A37DB003FAB7D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9E3F1AA4295A4A79003FAB7D /* ImageViewController.swift */,
+				9E003CD6295A2C1400757DCC /* ViewController.swift */,
+				9E3F1A9E295A4099003FAB7D /* MenuCVCell.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +123,9 @@
 			dependencies = (
 			);
 			name = "VasiliHomework-24";
+			packageProductDependencies = (
+				9E3F1A6D295A39CE003FAB7D /* SnapKit */,
+			);
 			productName = "VasiliHomework-24";
 			productReference = 9E003CCF295A2C1400757DCC /* VasiliHomework-24.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +154,9 @@
 				Base,
 			);
 			mainGroup = 9E003CC6295A2C1400757DCC;
+			packageReferences = (
+				9E3F1A6C295A39CE003FAB7D /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 9E003CD0295A2C1400757DCC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,7 +185,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E003CD7295A2C1400757DCC /* ViewController.swift in Sources */,
+				9E3F1A9F295A4099003FAB7D /* MenuCVCell.swift in Sources */,
 				9E003CD3295A2C1400757DCC /* AppDelegate.swift in Sources */,
+				9E3F1AA5295A4A79003FAB7D /* ImageViewController.swift in Sources */,
 				9E003CD5295A2C1400757DCC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +404,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9E3F1A6C295A39CE003FAB7D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9E3F1A6D295A39CE003FAB7D /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9E3F1A6C295A39CE003FAB7D /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9E003CC7295A2C1400757DCC /* Project object */;
 }
