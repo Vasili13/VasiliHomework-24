@@ -16,6 +16,14 @@
 		9E3F1A6E295A39CE003FAB7D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9E3F1A6D295A39CE003FAB7D /* SnapKit */; };
 		9E3F1A9F295A4099003FAB7D /* MenuCVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F1A9E295A4099003FAB7D /* MenuCVCell.swift */; };
 		9E3F1AA5295A4A79003FAB7D /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F1AA4295A4A79003FAB7D /* ImageViewController.swift */; };
+		9E3F1AAD295AD77D003FAB7D /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F1AAC295AD77D003FAB7D /* ApiConstants.swift */; };
+		9E3F1AAF295AD79A003FAB7D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F1AAE295AD79A003FAB7D /* Models.swift */; };
+		9E3F1AB5295AF4A2003FAB7D /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F1AB4295AF4A2003FAB7D /* UsersViewController.swift */; };
+		9E3F1AB7295AF71A003FAB7D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F1AB6295AF71A003FAB7D /* DetailViewController.swift */; };
+		9E3F1AB9295AFDE3003FAB7D /* Posts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3F1AB8295AFDE3003FAB7D /* Posts.storyboard */; };
+		9E3F1ABB295AFE1E003FAB7D /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F1ABA295AFE1E003FAB7D /* PostsViewController.swift */; };
+		9E3F1ABD295B2232003FAB7D /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E3F1ABC295B2232003FAB7D /* Map.storyboard */; };
+		9E3F1ABF295B22C5003FAB7D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3F1ABE295B22C5003FAB7D /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +37,14 @@
 		9E003CE0295A2C1500757DCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E3F1A9E295A4099003FAB7D /* MenuCVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCVCell.swift; sourceTree = "<group>"; };
 		9E3F1AA4295A4A79003FAB7D /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		9E3F1AAC295AD77D003FAB7D /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
+		9E3F1AAE295AD79A003FAB7D /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		9E3F1AB4295AF4A2003FAB7D /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		9E3F1AB6295AF71A003FAB7D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		9E3F1AB8295AFDE3003FAB7D /* Posts.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Posts.storyboard; sourceTree = "<group>"; };
+		9E3F1ABA295AFE1E003FAB7D /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
+		9E3F1ABC295B2232003FAB7D /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		9E3F1ABE295B22C5003FAB7D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +101,8 @@
 		9E3F1A68295A37B7003FAB7D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9E3F1AAC295AD77D003FAB7D /* ApiConstants.swift */,
+				9E3F1AAE295AD79A003FAB7D /* Models.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -93,6 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				9E003CD8295A2C1400757DCC /* Main.storyboard */,
+				9E3F1AB8295AFDE3003FAB7D /* Posts.storyboard */,
+				9E3F1ABC295B2232003FAB7D /* Map.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -100,11 +120,31 @@
 		9E3F1A6B295A37DB003FAB7D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9E3F1AB0295AE184003FAB7D /* ActionFlow */,
+				9E3F1AB1295AE1E4003FAB7D /* Users */,
 				9E3F1AA4295A4A79003FAB7D /* ImageViewController.swift */,
+				9E3F1ABA295AFE1E003FAB7D /* PostsViewController.swift */,
+				9E3F1ABE295B22C5003FAB7D /* MapViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9E3F1AB0295AE184003FAB7D /* ActionFlow */ = {
+			isa = PBXGroup;
+			children = (
 				9E003CD6295A2C1400757DCC /* ViewController.swift */,
 				9E3F1A9E295A4099003FAB7D /* MenuCVCell.swift */,
 			);
-			path = Controllers;
+			name = ActionFlow;
+			sourceTree = "<group>";
+		};
+		9E3F1AB1295AE1E4003FAB7D /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				9E3F1AB4295AF4A2003FAB7D /* UsersViewController.swift */,
+				9E3F1AB6295AF71A003FAB7D /* DetailViewController.swift */,
+			);
+			name = Users;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,7 +211,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E3F1AB9295AFDE3003FAB7D /* Posts.storyboard in Resources */,
 				9E003CDF295A2C1500757DCC /* LaunchScreen.storyboard in Resources */,
+				9E3F1ABD295B2232003FAB7D /* Map.storyboard in Resources */,
 				9E003CDC295A2C1500757DCC /* Assets.xcassets in Resources */,
 				9E003CDA295A2C1400757DCC /* Main.storyboard in Resources */,
 			);
@@ -184,9 +226,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E3F1ABF295B22C5003FAB7D /* MapViewController.swift in Sources */,
+				9E3F1AB7295AF71A003FAB7D /* DetailViewController.swift in Sources */,
 				9E003CD7295A2C1400757DCC /* ViewController.swift in Sources */,
 				9E3F1A9F295A4099003FAB7D /* MenuCVCell.swift in Sources */,
+				9E3F1AAD295AD77D003FAB7D /* ApiConstants.swift in Sources */,
+				9E3F1ABB295AFE1E003FAB7D /* PostsViewController.swift in Sources */,
 				9E003CD3295A2C1400757DCC /* AppDelegate.swift in Sources */,
+				9E3F1AAF295AD79A003FAB7D /* Models.swift in Sources */,
+				9E3F1AB5295AF4A2003FAB7D /* UsersViewController.swift in Sources */,
 				9E3F1AA5295A4A79003FAB7D /* ImageViewController.swift in Sources */,
 				9E003CD5295A2C1400757DCC /* SceneDelegate.swift in Sources */,
 			);

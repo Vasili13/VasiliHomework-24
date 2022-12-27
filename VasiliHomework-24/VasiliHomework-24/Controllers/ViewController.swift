@@ -45,7 +45,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             guard let imageVC = storyboard?.instantiateViewController(withIdentifier: "ImageVC") as? ImageViewController else { return }
             navigationController?.pushViewController(imageVC, animated: true)
         case .users:
-            print("users")
+            guard let userTVC = storyboard?.instantiateViewController(withIdentifier: "UsersViewController") as? UsersViewController else { return }
+            navigationController?.pushViewController(userTVC, animated: true)
         }
     }
 }

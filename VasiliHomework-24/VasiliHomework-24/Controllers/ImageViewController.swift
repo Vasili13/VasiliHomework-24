@@ -16,7 +16,7 @@ class ImageViewController: UIViewController {
         return indicator
     }()
     
-    lazy var folderImage: UIImageView = {
+    lazy var uploadedImage: UIImageView = {
         let image = UIImageView()
         return image
     }()
@@ -25,8 +25,10 @@ class ImageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchImage()
-        view.addSubview(folderImage)
+        
+        getImageFromURL()
+        
+        view.addSubview(uploadedImage)
         view.addSubview(activityIndicator)
         updateViewConstraints()
     }
@@ -37,16 +39,14 @@ class ImageViewController: UIViewController {
             make.centerY.centerX.equalToSuperview()
         }
         
-        folderImage.snp.makeConstraints { make in
-            make.height.width.equalTo(100)
+        uploadedImage.snp.makeConstraints { make in
+            make.height.width.equalTo(300)
             make.centerY.centerX.equalToSuperview()
         }
     }
     
-    private func fetchImage() {
-        guard let url = URL(string: imageURL) else {
-            return
-        }
+    private func getImageFromURL() {
+        guard let url = URL(string: imageURL) else { return }
         let urlRequest = URLRequest(url: url)
         let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             
@@ -56,7 +56,6 @@ class ImageViewController: UIViewController {
                 
                 if let error = error {
                     print(error.localizedDescription)
-                    // добавить дефолтную картинку и отобразить ошибку
                     return
                 }
                 
@@ -64,18 +63,12 @@ class ImageViewController: UIViewController {
                     print(response)
                 }
                 
-                print("\n", data ?? "", "\n")
-                
                 if let data,
-                   let image = UIImage(data: data)
-                {
-                    self.folderImage.image = image
-                } else {
-                    // добавить дефолтную картинку
+                   let image = UIImage(data: data) {
+                    self.uploadedImage.image = image
                 }
-                
             }
-        }//.resume()
+        }
         task.resume()
     }
 }
