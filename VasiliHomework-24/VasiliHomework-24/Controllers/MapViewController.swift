@@ -12,11 +12,13 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     @IBOutlet weak var mapView: MKMapView!
     var user: User?
+    var geo: Geo?
     private let locationManager = CLLocationManager()
     private let annotation = MKPointAnnotation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Map"
         
         self.locationManager.delegate = self
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest

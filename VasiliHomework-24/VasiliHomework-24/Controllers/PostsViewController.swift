@@ -18,7 +18,18 @@ class PostsViewController: UIViewController {
         postsTableView.dataSource = self
         postsTableView.delegate = self
         fetchPosts()
-
+        title = "Posts"
+        configurateNavBar()
+    }
+    
+    private func configurateNavBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus.app"), style: .done, target: self, action: #selector(addNewPost))
+    }
+    
+    @objc func addNewPost(){
+        guard let newPostVC = storyboard?.instantiateViewController(withIdentifier: "NewPostViewController") as? NewPostViewController else { return }
+        newPostVC.user = user
+        navigationController?.pushViewController(newPostVC, animated: true)
     }
     
     func fetchPosts() {
@@ -43,6 +54,7 @@ class PostsViewController: UIViewController {
     }
 }
 
+//MARK: - Extension for tableView
 extension PostsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         posts.count
@@ -55,8 +67,12 @@ extension PostsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.detailTextLabel?.text = post.body
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let commentVC = storyboard?.instantiateViewController(withIdentifier: "CommentsViewController") as? CommentsViewController else { return }
+        navigationController?.pushViewController(commentVC, animated: true)
+    }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Posts"
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
 }

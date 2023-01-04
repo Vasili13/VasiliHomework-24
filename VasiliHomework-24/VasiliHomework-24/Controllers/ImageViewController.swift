@@ -10,6 +10,7 @@ import SnapKit
 
 class ImageViewController: UIViewController {
 
+    //MARK: - Variables
     lazy var activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.startAnimating()
@@ -33,6 +34,7 @@ class ImageViewController: UIViewController {
         updateViewConstraints()
     }
     
+    //MARK: - Snp updateViewConstraints
     override func updateViewConstraints() {
         super.updateViewConstraints()
         activityIndicator.snp.makeConstraints { make in
@@ -45,6 +47,7 @@ class ImageViewController: UIViewController {
         }
     }
     
+    //MARK: - Image URL
     private func getImageFromURL() {
         guard let url = URL(string: imageURL) else { return }
         let urlRequest = URLRequest(url: url)

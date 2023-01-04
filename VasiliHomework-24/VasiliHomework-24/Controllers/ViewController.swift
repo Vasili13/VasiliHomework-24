@@ -8,11 +8,13 @@
 import UIKit
 import SnapKit
 
+//MARK: - Enum of UserActions
 enum UserActions: String, CaseIterable {
     case downloadImage = "Download Image"
     case users = "Users"
 }
 
+//MARK: - ViewController
 class ViewController: UIViewController {
     
     @IBOutlet weak var menuCollectionView: UICollectionView!
@@ -26,6 +28,7 @@ class ViewController: UIViewController {
     }
 }
 
+//MARK: - Extension for collectionView
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         userActions.count
@@ -51,6 +54,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
 }
 
+//MARK: - Extension for collection cell size
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: (UIScreen.main.bounds.width - 20), height: 80)

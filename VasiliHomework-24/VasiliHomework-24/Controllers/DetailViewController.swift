@@ -10,6 +10,7 @@ import SnapKit
 
 class DetailViewController: UIViewController {
     
+    //MARK: - Variables
     var user: User?
     
     lazy var nameLabel: UILabel = {
@@ -89,11 +90,22 @@ class DetailViewController: UIViewController {
         btn.addTarget(self, action: #selector(openPosts), for: .touchUpInside)
         return btn
     }()
+    
+    lazy var albumsBtn: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("Albums", for: .normal)
+        btn.setTitleColor(.black, for: .normal)
+        btn.backgroundColor = .systemBlue
+        btn.layer.cornerRadius = 10
+        btn.addTarget(self, action: #selector(openAlbums), for: .touchUpInside)
+        return btn
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
+        title = "Detail Info"
         
         view.addSubview(nameLabel)
         view.addSubview(usernameLabel)
@@ -107,10 +119,13 @@ class DetailViewController: UIViewController {
         view.addSubview(infoPhoneLabel)
         view.addSubview(infoWebsiteLabel)
         
-        view.addSubview(postsBtn)
         view.addSubview(adressInfo)
+        view.addSubview(postsBtn)
+        view.addSubview(albumsBtn)
         updateViewConstraints()
     }
+    
+    //MARK: - Update snp constraints
     override func updateViewConstraints() {
         super.updateViewConstraints()
         nameLabel.snp.makeConstraints { make in
@@ -166,19 +181,36 @@ class DetailViewController: UIViewController {
             make.height.equalTo(60)
             make.width.equalTo(100)
         }
+        
+        albumsBtn.snp.makeConstraints { make in
+            make.top.equalTo(postsBtn).inset(76)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(60)
+            make.width.equalTo(100)
+        }
     }
     
+    //MARK: - Posts
     @objc func openPosts() {
         guard let postsVC = UIStoryboard(name: "Posts", bundle: nil).instantiateViewController(withIdentifier: "PostsViewController") as? PostsViewController else { return }
         postsVC.user = user
         navigationController?.pushViewController(postsVC, animated: true)
     }
     
+    //MARK: - Map
     @objc func showMap() {
         guard let mapVC = UIStoryboard(name: "Map", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as? MapViewController else { return }
         mapVC.user = user
         navigationController?.pushViewController(mapVC, animated: true)
     }
+    
+    //MARK: - Albums
+    @objc func openAlbums() {
+        guard let albumsVC = UIStoryboard(name: "AlbumsAndPhotos", bundle: nil).instantiateViewController(withIdentifier: "AlbumsViewController") as? AlbumsViewController else { return }
+        albumsVC.user = user
+        navigationController?.pushViewController(albumsVC, animated: true)
+    }
+    
     private func setupUI() {
         infoNameLabel.text = user?.name
         infoUsernameLabel.text = user?.username
