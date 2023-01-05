@@ -50,6 +50,7 @@ class NewPostViewController: UIViewController {
         return btn
     }()
 
+    //MARK: -ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(titleTextField)
