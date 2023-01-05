@@ -22,6 +22,10 @@ class PostsViewController: UIViewController {
         configurateNavBar()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        fetchPosts()
+    }
+    
     private func configurateNavBar() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus.app"), style: .done, target: self, action: #selector(addNewPost))
     }
@@ -68,11 +72,35 @@ extension PostsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let commentVC = storyboard?.instantiateViewController(withIdentifier: "CommentsViewController") as? CommentsViewController else { return }
-        navigationController?.pushViewController(commentVC, animated: true)
+//        guard let commentVC = storyboard?.instantiateViewController(withIdentifier: "CommentsViewController") as? CommentsViewController else { return }
+//        navigationController?.pushViewController(commentVC, animated: true)
+        performSegue(withIdentifier: "showComments", sender: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? CommentsViewController,
+           let indexPath = sender as? IndexPath {
+            let post = posts[indexPath.row]
+            vc.postID = post.id
+        } else if let vc = segue.destination as? NewPostViewController {
+            vc.user = user
+        }
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete, let id = posts[indexPath.row].id {
+            NetworkService.deletePost(postID: id) { [weak self] json, error in
+                if json != nil {
+                    self?.posts.remove(at: indexPath.row)
+                    tableView.deleteRows(at: [indexPath], with: .automatic)
+                } else if let error = error {
+                    print(error)
+                }
+            }
+        }
     }
 }

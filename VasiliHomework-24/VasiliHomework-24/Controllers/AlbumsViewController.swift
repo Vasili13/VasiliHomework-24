@@ -69,7 +69,20 @@ extension AlbumsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let photoVC = UIStoryboard(name: "AlbumsAndPhotos", bundle: nil).instantiateViewController(withIdentifier: "PhotoVC") as? PhotoVC else { return }
-        navigationController?.pushViewController(photoVC, animated: true)
+//        guard let photoVC = UIStoryboard(name: "AlbumsAndPhotos", bundle: nil).instantiateViewController(withIdentifier: "PhotoVC") as? PhotoVC else { return }
+//        photoVC.user = user
+//        photoVC.album = albums
+//        navigationController?.pushViewController(photoVC, animated: true)
+        let album = albums[indexPath.row]
+        performSegue(withIdentifier: "showPhotos", sender: album)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showPhotos",
+            let photosCollectionVC = segue.destination as? PhotoVC,
+            let album = sender as? JSON {
+            photosCollectionVC.user = user
+            photosCollectionVC.album = album
+        }
     }
 }

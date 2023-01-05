@@ -58,6 +58,7 @@
                     </view>
                     <connections>
                         <outlet property="postsTableView" destination="PIK-jo-m5J" id="bL2-IC-MY8"/>
+                        <segue destination="3fF-wa-1zu" kind="show" identifier="showComments" id="YXJ-CK-oQ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -69,11 +70,11 @@
             <objects>
                 <viewController storyboardIdentifier="CommentsViewController" id="3fF-wa-1zu" customClass="CommentsViewController" customModule="VasiliHomework_24" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z7t-64-8RG">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ukr-dQ-nLA">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="724"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="5do-wn-hjC" detailTextLabel="Q2s-7u-cr9" style="IBUITableViewCellStyleSubtitle" id="OBV-Qd-Vbu">
@@ -112,6 +113,7 @@
                             <constraint firstItem="JLn-Ck-sQd" firstAttribute="trailing" secondItem="ukr-dQ-nLA" secondAttribute="trailing" id="vlp-tr-KJ7"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="qPy-SM-w6C"/>
                     <connections>
                         <outlet property="commentsTableView" destination="ukr-dQ-nLA" id="bh4-Aq-94Y"/>
                     </connections>

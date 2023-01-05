@@ -19,8 +19,34 @@ class CommentsViewController: UIViewController {
         title = "Comments"
         commentsTableView.delegate = self
         commentsTableView.dataSource = self
+        fetchComments()
     }
+    
+    func fetchComments() {
+        guard let postID else {
+            return
+        }
+        let pathURL = "\(ApiConstants.commentsPath)?postId=\(postID)"
+        guard let url = URL(string: pathURL) else {
+            return
+        }
 
+        let task = URLSession.shared.dataTask(with: url) { data, _, _ in
+            guard let data else {
+                return
+            }
+            do {
+                self.comments = try JSONDecoder().decode([Comment].self, from: data)
+                print(self.comments)
+            } catch {
+                print(error)
+            }
+            DispatchQueue.main.async {
+                self.commentsTableView.reloadData()
+            }
+        }
+        task.resume()
+    }
 }
 
 extension CommentsViewController: UITableViewDelegate, UITableViewDataSource {
